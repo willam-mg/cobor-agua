@@ -7,6 +7,11 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+# Payment water for PINANI town
+
+This is a payment water Project for a small town.
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
@@ -59,3 +64,58 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Requisitos
+- PHP 7.4
+- MariaDB o Mysql
+- Apache 2 o Nginx
+- Composer 
+Puede usar XAMPP si usa windows; con una version de php 7 y luego descargar e instalar composer desde su sitio oficial.
+
+
+## Deployment
+
+To deploy this project run the next commands:
+
+- Ingrese dentro de la carpeta del proyecto e instale los paquetes del proyecto:
+```bash
+  composer install
+```
+
+- Genera una llave para la aplicacion
+```bash
+  php artisan key:generate 
+```
+- Crear un nuevo archivo con el contenido del archivo "example.env" y guardarlo como solmanente ".env"
+
+- debe tener instalado un motor de base de datos "Maria DB" o "Mysql"
+
+- Debe tener creada una base de datos y configurar su conexion en el archivo ".env" que acaba de crear
+
+- Debe tener creada una base de datos y configurar su conexion en el archivo .env que acaba de crear
+
+- Crear las tablas para la base de datos con el siguiente commando:
+```bash
+  php artisan migrate
+```
+
+- Generar una llave para el "passport" con el siguiente commando y escribir "user"
+```bash
+  php artisan passport:client --personal
+```
+
+- Crear el enlace simbolico para la carpeta Storage con el siguiente comando:
+```bash
+  php artisan storage:link
+```
+
+- Para levantar el servidor de laravel, ejecutar:
+```bash
+  php artisan serve
+```
+
+Finalmente en cualquier navegador web e ingresar a la siguiente direccion: 
+
+(http://localhost:8000/docs)
+
