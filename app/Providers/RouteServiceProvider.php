@@ -20,6 +20,22 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
+     * the constant to defaine API Version.
+     *
+     * @var string
+     */
+    private const API_VERSION = 'v1';
+
+    /**
+     * The controller namespace for the application.
+     *
+     * When present, controller route declarations will automatically be prefixed with this namespace.
+     *
+     * @var string|null
+     */
+    protected $namespace = 'App\\Http\\Controllers';
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
@@ -32,9 +48,10 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
 
-            Route::prefix('api')
+            Route::prefix('api/' . self::API_VERSION)
                 ->middleware('api')
-                ->group(base_path('routes/api.php'));
+                ->namespace($this->namespace . '\\api\\' . self::API_VERSION)
+                ->group(base_path('routes/api/' . self::API_VERSION . '/api.php'));  
         });
     }
 
