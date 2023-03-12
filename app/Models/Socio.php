@@ -19,9 +19,41 @@ class Socio extends Model
         'src_foto',
     ];
 
+    /**
+     * the appends attributes for accesors.
+     */
+    protected $appends = [
+        'foto',
+        'foto_thumbnail',
+        'foto_thumbnail_sm',
+    ];
+
+    /**
+     * get foto attribute
+     */
+    public function getFotoAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/' . $this->src_foto : null;
+    }
+
+    /**
+     * Get accesor foto thumbnail.
+     */
+    public function getFotoThumbnailAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/thumbnail/' . $this->src_foto : null;
+    }
+    /**
+     * Get accesor foto small thumbnail.
+     */
+    public function getFotoThumbnailSmAttribute()
+    {
+        return $this->src_foto ? url('/') . '/storage/uploads/thumbnail-small/' . $this->src_foto : null;
+    }
+
     public function user(): HasOne
     {
-        return $this->hasOne(User::class, 'user_id', 'id');
+        return $this->hasOne(User::class, 'socio_id');
     }
 
     public function propiedades(): HasMany {

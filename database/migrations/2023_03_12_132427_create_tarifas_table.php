@@ -15,8 +15,8 @@ class CreateTarifasTable extends Migration
     {
         Schema::create('tarifas', function (Blueprint $table) {
             $table->id();
-            $table->number('valor_m3')->comment('metro cubico');
-            $table->number('tarifa')->comment('ejm: 15 Bs.');
+            $table->decimal('valor_m3', 2)->comment('metro cubico');
+            $table->decimal('tarifa', 2)->comment('ejm: 15 Bs.');
             $table->timestamps();
             $table->softDeletes();
         });

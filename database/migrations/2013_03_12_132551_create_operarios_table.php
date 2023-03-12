@@ -19,7 +19,7 @@ class CreateOperariosTable extends Migration
             $table->string('ci', 45);
             $table->string('telefono', 45);
             $table->text('direccion')->nullable();
-            $table->string('rol', 45);
+            $table->string('rol', 45)->default('administrativo')->comment('administrtivo, cobrador, tecnico');
             $table->string('cargo', 45);
             $table->string('fecha_inicio', 45)->nullable();
             $table->string('fecha_fin', 45)->nullable();
